@@ -25,10 +25,6 @@
   └── transforms.py: 数据增强相关
 ```
 
-## 预训练权重下载地址（下载后放入当前文件夹中）：
-由于原作者提供的预训练权重(Imagenet和COCO)是放在GoogleDrive和OneDrive上的，国内无法正常访问。所有我提前将权重文件全部下载并放在百度网盘中，
-需要的可以自行下载，链接:https://pan.baidu.com/s/1Lu6mMAWfm_8GGykttFMpVw 提取码:f43o
-
 下载后的目录结构如下：
 ```
 ├── pytorch
@@ -48,13 +44,9 @@
 ```
 如果要直接使用在COCO数据集上预训练好的权重进行预测，下载pose_coco下的`pose_hrnet_w32_256x192.pth`使用即可。
 如果要从头训练网络，下载imagenet下的`hrnet_w32-36af842e.pth`文件，并重命名为`hrnet_w32.pth`即可。
-
-除此之外，还有一个`person_detection_results`文件，存储的是论文中提到的人体检测器的检测结果，如果需要使用可以下载，但个人建议直接使用COCO val中GT信息即可。
-链接: https://pan.baidu.com/s/19Z4mmNHUD934GQ9QYcF5iw  密码: i08q
  
 ## 数据集，本例程使用的是COCO2017数据集
 * COCO官网地址：https://cocodataset.org/
-* 对数据集不了解的可以看下我写的博文：https://blog.csdn.net/qq_37541097/article/details/113247318
 * 这里以下载coco2017数据集为例，主要下载三个文件：
     * `2017 Train images [118K/18GB]`：训练过程中使用到的所有图像文件
     * `2017 Val images [5K/1GB]`：验证过程中使用到的所有图像文件
@@ -94,9 +86,6 @@ python train.py --data-path /data/coco2017
 2. 训练过程中保存的`key_results.txt`是每个epoch在验证集上的COCO指标，前10个值是COCO指标，后面两个值是训练平均损失以及学习率
 3. 在使用预测脚本时，如果要读取自己训练好的权重要将`weights_path`设置为你自己生成的权重路径。
 
-
-## 如果对HRNet网络不是很理解可参考我的bilibili
-https://www.bilibili.com/video/BV1bB4y1y7qP
 
 ## HRNet网络结构图
 ![HRNet.png](HRNet.png)
